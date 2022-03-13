@@ -14,16 +14,18 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 def is_template_in_image(img):
-    return pyautogui.locateOnScreen(img, confidence=0.8) is not None
+    return pyautogui.locateOnScreen(img, confidence=0.65) is not None
 
 def run_bot():
     flag = "pulled"
     found = False
-    template = resource_path('test1.png')
+    template = resource_path('punika.png')
     counter = 0
     
     print(strftime("%H:%M:%S", gmtime()), "starting a bot")
     time.sleep(3)
+    #x, y = pyautogui.locateCenterOnScreen('horse.png', confidence=0.8)
+    #pyautogui.click(x, y)
     while(1):
         if flag == "pulled":
             print(strftime("%H:%M:%S", gmtime()), "throwing a fishing rod,", counter)
