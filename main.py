@@ -28,6 +28,24 @@ def hold_key(key, hold_time):
     time.sleep(hold_time)
     pyautogui.keyUp(key);
 
+def alt_p():
+    pyautogui.keyDown("alt")
+    pyautogui.press("p")
+    pyautogui.keyUp("alt")
+
+def reapir():
+    alt_p()
+    time.sleep(1)
+    x, y = pyautogui.locateCenterOnScreen('repairlogo.png', confidence=0.8)
+    left_click(x, y)
+    time.sleep(1)
+    x, y = pyautogui.locateCenterOnScreen('repair.png', confidence=0.8)
+    left_click(x, y)
+    time.sleep(1)
+    pyautogui.press('esc')
+    pyautogui.press('esc')
+    time.sleep(1)
+
 def auto_fish():
     flag = "thrown"
     template = resource_path('punika.png')
@@ -48,6 +66,8 @@ def auto_fish():
                 counter+=1
                 time.sleep(6)
 
+
+
 def chaos_gunlancer():
     x, y = pyautogui.locateCenterOnScreen('statue.png', confidence=0.4)
     right_click(x, y)
@@ -65,9 +85,13 @@ def chaos_gunlancer():
     pyautogui.press('f')
     time.sleep(8)
     hold_key('s', 3.5)
-    time.sleep(8)
+    time.sleep(4)
+    pyautogui.press('a')
+    time.sleep(4)
     pyautogui.press('f')
-    time.sleep(6.5)
+    time.sleep(3)
+    pyautogui.press('q')
+    time.sleep(3)
     pyautogui.press('e')
     time.sleep(1.5)
     pyautogui.press('z')
@@ -84,11 +108,18 @@ def chaos_gunlancer():
     pyautogui.press('enter')
     time.sleep(15)
 
+
 def auto_chaos():
     print("Starting in 5 seconds. Tab back in the game and be near a chaos dungeon statue (punika if possible).")
     time.sleep(5)
+    counter = 0
     while(1):
         chaos_gunlancer()
+        counter+=1
+        print("Runs done:", counter)
+        if (counter%5 == 20):
+            repair()
+
 
 
 def run_bot():    
