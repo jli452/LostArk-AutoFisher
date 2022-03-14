@@ -110,14 +110,14 @@ def chaos_gunlancer():
 
 
 def auto_chaos():
+    counter = 0
     print("Starting in 5 seconds. Tab back in the game and be near a chaos dungeon statue (punika if possible).")
     time.sleep(5)
-    counter = 0
     while(1):
         chaos_gunlancer()
         counter+=1
         print("Runs done:", counter)
-        if (counter%5 == 20):
+        if (counter%5 == 0):
             repair()
 
 
