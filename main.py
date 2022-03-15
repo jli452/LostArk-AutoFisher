@@ -33,7 +33,7 @@ def alt_p():
     pyautogui.press("p")
     pyautogui.keyUp("alt")
 
-def reapir():
+def repair():
     alt_p()
     time.sleep(1)
     x, y = pyautogui.locateCenterOnScreen('repairlogo.png', confidence=0.8)
